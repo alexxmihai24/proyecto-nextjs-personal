@@ -1,103 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import AutoCarousel from "@/components/AutoCarousel";
+import CountDown from "@/components/CountDown";
+import Table from "@/components/Table";
+import SortedTable from "@/components/SortedTable";
+import RadialProgress from "@/components/RadialProgress";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      <AutoCarousel />
+
+      <button className="btn btn-neutral">Neutral</button>
+      <button className="btn btn-primary">Primary</button>
+      <button className="btn btn-secondary">Secondary</button>
+      <button className="btn btn-accent">Accent</button>
+      <button className="btn btn-info">Info</button>
+      <button className="btn btn-success">Success</button>
+      <button className="btn btn-warning">Warning</button>
+      <button className="btn btn-error">Error</button>
+      <br />
+      <button className="btn btn-soft">Default</button>
+      <button className="btn btn-soft btn-primary">Primary</button>
+      <button className="btn btn-soft btn-secondary">Secondary</button>
+      <button className="btn btn-soft btn-accent">Accent</button>
+      <button className="btn btn-soft btn-info">Info</button>
+      <button className="btn btn-soft btn-success">Success</button>
+      <button className="btn btn-soft btn-warning">Warning</button>
+      <button className="btn btn-soft btn-error">Error</button>
+      <br />
+      <button className="btn btn-outline">Default</button>
+      <button className="btn btn-outline btn-primary">Primary</button>
+      <button className="btn btn-outline btn-secondary">Secondary</button>
+      <button className="btn btn-outline btn-accent">Accent</button>
+      <button className="btn btn-outline btn-info">Info</button>
+      <button className="btn btn-outline btn-success">Success</button>
+      <button className="btn btn-outline btn-warning">Warning</button>
+      <button className="btn btn-outline btn-error">Error</button>
+      <br />
+
+      <div className="dropdown">
+        <div tabIndex={0} role="button" className="btn m-1">Click</div>
+        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <li><a>Item 1</a></li>
+          <li><a>Item 2</a></li>
+        </ul>
+      </div>
+
+      <details className="dropdown">
+        <summary className="btn m-1">open or close</summary>
+        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <li><a>Item 1</a></li>
+          <li><a>Item 2</a></li>
+        </ul>
+      </details>
+      <CountDown />
+      <RadialProgress />
+
+
+
+
+      {/* name of each tab group should be unique */}
+      <div className="tabs tabs-box">
+        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 1" />
+        <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
+
+        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 2" defaultChecked />
+        <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
+
+        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 3" />
+        <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+      </div>
+
+
+      {/* <Table /> */}
+      <SortedTable />
+
+      <div className="tooltip" data-tip="hello world">
+        <p className="btn">Hover me</p>
+      </div>
+
+
+    </section>
   );
 }
