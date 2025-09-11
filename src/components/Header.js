@@ -66,7 +66,7 @@ function Header() {
                         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content fixed top-0 right-0 z-10">
                             {/* Page content here */}
-                            <label htmlFor="my-drawer" className=" btn btn-primary drawer-button size-15 rounded-sm">Drawer</label>
+                            <label htmlFor="my-drawer" className=" btn btn-primary drawer-button size-15 rounded-full">Drawer</label>
                         </div>
                         <div className="drawer-side">
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
