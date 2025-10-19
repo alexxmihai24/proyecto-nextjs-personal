@@ -14,21 +14,46 @@ export default function Home() {
 
 
       <br />
-
-
-
+      <div className="tooltip" data-tip="hello world">
+        <p className="btn">Hover me</p>
+      </div>
 
       <CountDown />
       <RadialProgress />
 
 
-
-
       {/* name of each tab group should be unique */}
       <div className="tabs tabs-box">
-        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 1" />
+        <input type="radio" name="my_tabs" className="tab" aria-label="Tab 1" />
         <div className="tab-content bg-base-100 border-base-300 p-6">
           <p>Tab content 1</p>
+
+          <details className="dropdown">
+            <summary className="btn m-1">open or close</summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </details>
+        </div>
+
+        <input type="radio" name="my_tabs" className="tab" aria-label="Tab 2" />
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <p>Tab content 2</p>
+
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn m-1">Click</div>
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <input type="radio" name="my_tabs" className="tab" aria-label="Tab 3" defaultChecked />
+        <div className="tab-content bg-base-100 border-base-300 p-6">
+          <p>Tab content 3</p>
+
 
           <button className="btn btn-neutral">Neutral</button>
           <button className="btn btn-primary">Primary</button>
@@ -56,44 +81,14 @@ export default function Home() {
           <button className="btn btn-outline btn-success">Success</button>
           <button className="btn btn-outline btn-warning">Warning</button>
           <button className="btn btn-outline btn-error">Error</button>
-        </div>
 
-        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 2" defaultChecked />
-        <div className="tab-content bg-base-100 border-base-300 p-6">
-          <p>Tab content 2</p>
-
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn m-1">Click</div>
-            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-              <li><a>Item 1</a></li>
-              <li><a>Item 2</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 3" />
-        <div className="tab-content bg-base-100 border-base-300 p-6">
-          <p>Tab content 3</p>
-
-          <details className="dropdown">
-            <summary className="btn m-1">open or close</summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-              <li><a>Item 1</a></li>
-              <li><a>Item 2</a></li>
-            </ul>
-          </details>
         </div>
       </div>
 
       <div className="p-10 bg-white"></div>
 
-      {/* <Table /> */}
       <SortedTable />
-
-      <div className="tooltip" data-tip="hello world">
-        <p className="btn">Hover me</p>
-      </div>
-
+      {/* <Table /> */}
 
     </section>
   );

@@ -6,19 +6,6 @@ function RadialProgress() {
 
     const [progreso, setProgreso] = useState(0)
 
-    // useEffect(() => {
-    // const timer = setInterval(() => {
-    //     setProgreso((prev) => {
-    //         if (prev >= 100) {
-    //             clearInterval(timer);
-    //             return prev;
-    //         }
-    //         return prev + 1;
-    //     });
-    // }, 20);
-
-    //     return () => clearInterval(timer);
-    // }, [])
 
     useEffect(() => {
         if (progreso >= 100) return;
