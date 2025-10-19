@@ -54,7 +54,6 @@ export default function Home() {
         <div className="tab-content bg-base-100 border-base-300 p-6">
           <p>Tab content 3</p>
 
-
           <button className="btn btn-neutral">Neutral</button>
           <button className="btn btn-primary">Primary</button>
           <button className="btn btn-secondary">Secondary</button>
