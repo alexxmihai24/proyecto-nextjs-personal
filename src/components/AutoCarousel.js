@@ -1,6 +1,7 @@
 // components/AutoCarousel.js
 'use client'
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"];

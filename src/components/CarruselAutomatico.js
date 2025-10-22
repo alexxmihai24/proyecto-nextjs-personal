@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const images = [
@@ -36,7 +37,7 @@ const CarruselAutomatico = () => {
                         key={index}
                         className="w-full flex-shrink-0 h-full"
                     >
-                        <img
+                        <Image
                             src={img}
                             alt={`Imagen ${index + 1}`}
                             className="h-full object-cover"

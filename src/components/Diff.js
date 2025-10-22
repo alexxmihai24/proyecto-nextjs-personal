@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function Diff() {
     return (
         <figure className="diff aspect-16/9 w-1/2" tabIndex={0}>
