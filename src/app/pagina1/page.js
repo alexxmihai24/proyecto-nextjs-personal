@@ -1,4 +1,4 @@
-i// src/app/page1/page.js 
+// src/app/page1/page.js 
 
 // IMPORTANTE: Eliminamos cualquier importación de MyDatePicker si existía.
 

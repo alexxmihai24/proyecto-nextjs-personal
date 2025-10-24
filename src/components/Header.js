@@ -13,10 +13,10 @@ function Header() {
             <div className="flex-none pr-20">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <Link href="/pagina1">Página 1</Link>
+                        <Link href="/pagina1">Portfolio</Link>
                     </li>
                     <li>
-                        <Link href="/pagina2">Página 2</Link>
+                        <Link href="/pagina2">Reloj</Link>
                     </li>
 
 
