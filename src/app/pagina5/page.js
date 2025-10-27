@@ -56,7 +56,7 @@ export default function CarouselCard() {
             url: "/img9.jpg"
         },
         {
-            title: " git add .",
+            title: " ",
             description: "", // Descripción vacía
             // Imagen local
             url: "/img10.jpg" 

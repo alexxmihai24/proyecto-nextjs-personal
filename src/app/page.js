@@ -1,112 +1,114 @@
-// components/ThemeSelect.js 
 "use client";
-// ¡LÍNEA ELIMINADA para evitar el error 'ReferenceError: Link is not defined'!
-import AutoCarousel from "@/components/AutoCarousel";
-import CountDown from "@/components/CountDown";
-import Table from "@/components/Table";
-import SortedTable from "@/components/SortedTable";
-import RadialProgress from "@/components/RadialProgress";
+import { useState } from 'react';
 
-// DATOS PARA TU NUEVA TABLA DE PRECIOS
-const planes = [
-    { nombre: "Beta", precio: "0€", caracteristicas: ["1 Usuario", "5 Proyectos"], estilo: "bg-base-200" },
-    { nombre: "Pro", precio: "59€", caracteristicas: ["Usuarios Ilimitados", "Proyectos Ilimitados"], estilo: "bg-primary text-primary-content shadow-lg" },
-    { nombre: "Corp", precio: "99€", caracteristicas: ["Soporte 24/7", "Integración API"], estilo: "bg-base-200" },
+
+const travelSpots = [
+    {
+        title: "Castillo de Bran",
+        subtitle: "La Leyenda de Drácula",
+        description: "Una fortaleza medieval gótica en el corazón de Transilvania, mundialmente famosa por su conexión con el mito de Drácula. ¡Imprescindible para los amantes de la historia y el misterio!",
+        image: "/castillodebran.jpg", 
+        icon: "castle"
+    },
+    {
+        title: "Carretera Transfagarasan",
+        subtitle: "La Ruta Escénica de los Cárpatos",
+        description: "Considerada una de las carreteras más hermosas del mundo. Serpentea a través de las montañas Făgăraș, ofreciendo vistas de infarto, especialmente en verano.",
+        image: "/carreteraTrans.jpg", 
+        icon: "road"
+    },
+    {
+        title: "Bucarest",
+        subtitle: "La Pequeña París",
+        description: "Descubre la vibrante capital, famosa por su arquitectura del siglo XIX, amplios bulevares y el monumental Palacio del Parlamento.",
+        image: "/Buca1.jpg", 
+        icon: "city"
+    },
 ];
 
+
 export default function Home() {
+    
+   
+    const getIcon = (type) => {
+        switch (type) {
+            case 'castle': return <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M5 10h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v3a2 2 0 002 2z" /></svg>;
+            case 'road': return <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19V6l-2 2m2-2l2 2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19V6l2 2m-2-2l-2 2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17H7M17 14H7M17 11H7" /></svg>;
+            case 'city': return <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h5" /></svg>;
+            default: return null;
+        }
+    };
+
     return (
-        <section>
-            
-            {/* TÍTULO CREATIVO PARA ENCABEZAR LA PÁGINA */}
-            <h1 className="text-4xl font-bold text-center text-secondary mb-10">
-                Arquitectura: Componentes Clave del Proyecto
-            </h1>
-
-            <AutoCarousel />
-            
-            <br />
-            {/* Mantenemos el tooltip original */}
-            <div className="tooltip" data-tip="hello world">
-                <p className="btn">Hover me</p>
-            </div>
-
-            <CountDown />
-            <RadialProgress />
-
-
-            {/* TABS: Aquí es donde la Pestaña 3 cambia de contenido */}
-            <div className="tabs tabs-box">
-                {/* Pestaña 1 Original */}
-                <input type="radio" name="my_tabs" className="tab" aria-label="Tab 1" />
-                <div className="tab-content bg-base-100 border-base-300 p-6">
-                    <p>Tab content 1</p>
-                    <details className="dropdown">
-                        <summary className="btn m-1">open or close</summary>
-                        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
-                        </ul>
-                    </details>
-                </div>
-
-                {/* Pestaña 2 Original */}
-                <input type="radio" name="my_tabs" className="tab" aria-label="Tab 2" />
-                <div className="tab-content bg-base-100 border-base-300 p-6">
-                    <p>Tab content 2</p>
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn m-1">Click</div>
-                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
-                        </ul>
+        <div className="min-h-screen bg-base-100">
+            {/* Sección HÉROE: Título y Banner */}
+            <section 
+                className="relative h-screen flex items-center justify-center text-white p-4"
+                style={{
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1563811656519-913a89341496?q=80&w=1920&auto=format&fit=crop)', // Paisaje Transilvano / Cárpatos - Esta URL de fondo la mantenemos por ahora.
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed' // Efecto parallax sutil
+                }}
+            >
+                {/* Overlay oscuro para mejor contraste del texto */}
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+                
+                <div className="relative text-center max-w-4xl space-y-6">
+                    <div className="badge badge-lg badge-outline text-xl font-bold p-3 mb-2 border-2 border-white">
+                        Descubre los Cárpatos
                     </div>
-                </div>
-
-                {/* PESTAÑA 3: ¡REEMPLAZADA con la tabla de planes! */}
-                <input type="radio" name="my_tabs" className="tab" aria-label="Planes de Acceso" defaultChecked />
-                <div className="tab-content bg-base-100 border-base-300 p-6">
-                    
-                    <h2 className="text-xl font-bold mb-4 text-secondary text-center">
-                        Modalidades de Acceso (Uso de Card y Badge) 💳
+                    <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight drop-shadow-lg leading-tight">
+                        RUMANÍA
+                    </h1>
+                    <h2 className="text-2xl md:text-3xl font-light italic">
+                        Donde la historia y la naturaleza se unen.
                     </h2>
-                    
-                    <div className="flex flex-col md:flex-row justify-center gap-6">
-                        {planes.map((plan, index) => (
-                            <div key={index} className={`card w-full md:w-64 shadow-xl border ${plan.estilo}`}>
-                                <div className="card-body items-center text-center p-4">
-                                    <h2 className="card-title text-2xl font-bold">
-                                        {plan.nombre}
-                                        {plan.nombre === "Pro" && <div className="badge badge-accent">Popular</div>}
-                                    </h2>
-                                    <p className="text-4xl font-extrabold my-2">{plan.precio}</p>
-                                    
-                                    <ul className="list-none space-y-1 text-left mb-4 w-full text-sm">
-                                        {plan.caracteristicas.map((carac, i) => (
-                                            <li key={i} className="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-success mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                                {carac}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    
-                                    <div className="card-actions w-full">
-                                        <button className={`btn btn-sm btn-block ${plan.nombre === "Pro" ? 'btn-secondary' : 'btn-outline'}`}>
-                                            Seleccionar
-                                        </button>
-                                    </div>
+                    <a href="/pagina1" className="btn btn-lg btn-secondary text-lg mt-6 shadow-xl hover:scale-105 transition-transform">
+                        Explora nuestros tours
+                    </a>
+                </div>
+            </section>
+
+            {/* Sección de Atracciones Principales (Cards) */}
+            <section className="py-20 bg-base-100 dark:bg-base-300">
+                <h3 className="text-4xl font-bold text-center text-secondary mb-12">
+                    Destinos Imprescindibles
+                </h3>
+
+                <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {travelSpots.map((spot, index) => (
+                        <div key={index} className="card bg-base-200 shadow-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.03] transition duration-300">
+                            <figure className="h-56">
+                                <img src={spot.image} alt={spot.title} className="w-full h-full object-cover"/>
+                            </figure>
+                            <div className="card-body p-6">
+                                <h4 className="card-title text-2xl mb-1 text-primary">
+                                    {spot.title}
+                                </h4>
+                                <p className="text-sm font-semibold text-accent mb-3 flex items-center">
+                                    {getIcon(spot.icon)} {spot.subtitle}
+                                </p>
+                                <p className="text-base-content text-sm">{spot.description}</p>
+                                <div className="card-actions justify-end mt-4">
+                                    <div className="badge badge-outline">{spot.details}</div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
-            </div>
-
-            <div className="p-10 bg-white"></div>
-
-            <SortedTable />
-            {/* <Table /> */}
-
-        </section>
+            </section>
+            
+            {/* Sección CTA Final y Footer Sencillo */}
+            <footer className="p-10 bg-base-300 text-base-content text-center">
+                <div className="max-w-xl mx-auto">
+                    <h4 className="text-2xl font-bold mb-4">¿Listo para tu aventura rumana?</h4>
+                    <p className="mb-6">Te ayudamos a planificar el viaje de tu vida a través de los Cárpatos, la historia medieval y la vibrante cultura.</p>
+                    <button className="btn btn-secondary btn-wide text-lg">
+                        Contáctanos Hoy
+                    </button>
+                </div>
+            </footer>
+        </div>
     );
 }

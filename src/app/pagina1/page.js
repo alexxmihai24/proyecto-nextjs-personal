@@ -4,12 +4,32 @@
 
 function MiGaleriaDeProyectos() {
     
-    // --- Configuración de tus 4 proyectos con el nombre CORRECTO de las fotos ---
+    // --- Configuración de 4 destinos de Rumanía para la galería ---
     const proyectos = [
-        { id: 1, titulo: "Proyecto 1: Diseño Web", descripcion: "Mi aplicación personal Full-Stack implementada con Next.js y Tailwind.", foto: "/img1.jpg" },
-        { id: 2, titulo: "Proyecto 2: React Componentes", descripcion: "Uso de componentes de estado de React para la gestión de datos dinámica.", foto: "/img2.jpg" },
-        { id: 3, titulo: "Proyecto 3: Tailwind Grid", descripcion: "Demostración de diseño responsivo con la clase Grid y utilidades de espaciado.", foto: "/img3.jpg" },
-        { id: 4, titulo: "Proyecto 4: DaisyUI Integración", descripcion: "Implementación del componente 'Drawer' y clases de utilería de DaisyUI.", foto: "/img4.jpg" },
+        { 
+            id: 1, 
+            titulo: "Castillo de Bran (Transilvania)", 
+            descripcion: "La legendaria fortaleza medieval asociada al mito de Drácula. Un viaje ineludible a la historia gótica.", 
+            foto: "/img8.jpg" 
+        },
+        { 
+            id: 2, 
+            titulo: "Carretera Transfăgărășan", 
+            descripcion: "La espectacular ruta de montaña a través de los Cárpatos. Perfecta para viajes en coche con vistas panorámicas.", 
+            foto: "/img12.jpg" 
+        },
+        { 
+            id: 3, 
+            titulo: "Bucarest: El Corazón Urbano", 
+            descripcion: "Descubre la capital, su monumental Palacio del Parlamento y la arquitectura que le valió el apodo 'La Pequeña París'.", 
+            foto: "/imgg1.jpg" 
+        },
+        { 
+            id: 4, 
+            titulo: "El Delta del Danubio", 
+            descripcion: "Reserva natural protegida, hogar de miles de especies de aves. Ideal para safaris acuáticos y ecoturismo.", 
+            foto: "/img11.jpeg" 
+        },
     ];
 
     return (
@@ -19,10 +39,10 @@ function MiGaleriaDeProyectos() {
             {/* Contenido de texto personalizado */}
             <header className="text-center mb-10">
                 <h1 className="text-5xl font-extrabold text-primary mb-3">
-                    Portafolio de Proyectos de Alex
+                    Destinos Clave de Rumanía
                 </h1>
                 <p className="text-lg text-neutral-content">
-                    Estas son 4 implementaciones clave. El resto de las páginas del proyecto original permanecen intactas.
+                    Explora los lugares más emblemáticos de los Cárpatos a la costa del Mar Negro.
                 </p>
             </header>
             
@@ -33,7 +53,7 @@ function MiGaleriaDeProyectos() {
                     // Componente Card de DaisyUI
                     <div key={p.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <figure className="h-40 overflow-hidden">
-                            {/* RUTA CORREGIDA: Usando p.foto que ahora es /imgX.jpg */}
+                            {/* RUTA CORREGIDA: Usando p.foto que es /imgX.jpg */}
                             <img 
                                 src={p.foto} 
                                 alt={p.titulo} 
@@ -45,7 +65,7 @@ function MiGaleriaDeProyectos() {
                             <p className="text-sm">{p.descripcion}</p>
                             <div className="card-actions justify-end mt-2">
                                 {/* Botón que modificaremos en el COMMIT 2 */}
-                                <button className="btn btn-sm btn-neutral">Más Info</button>
+                                <button className="btn btn-sm btn-neutral">Ver Viaje</button>
                             </div>
                         </div>
                     </div>
@@ -55,7 +75,7 @@ function MiGaleriaDeProyectos() {
             
             <div className="mt-10 text-center">
                 <p className="text-sm text-gray-500">
-                    Trabajo de DWEC. Hoy: Commit 1 (Contenido).
+                  
                 </p>
             </div>
         </div>
